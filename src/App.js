@@ -1,7 +1,7 @@
 function App() {
     return (
         <div>
-            <h1>prachi</h1>
+            <h1>SnackBox</h1>
         </div>
     );
 }
