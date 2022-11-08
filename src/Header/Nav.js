@@ -39,6 +39,9 @@ const Nav = () => {
                             <li>
                                 <Link>My review</Link>
                             </li>
+                            <li>
+                                <Link to="/blogs">Blogs</Link>
+                            </li>
                         </ul>
                     </div>
                     <Link className="btn btn-ghost normal-case text-xl">
@@ -59,6 +62,9 @@ const Nav = () => {
                         </li>
                         <li>
                             <Link>My review</Link>
+                        </li>
+                        <li>
+                            <Link to="/blogs">Blogs</Link>
                         </li>
                     </ul>
                 </div>

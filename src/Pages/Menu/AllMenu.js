@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import UseTitle from "../../Hooks/UseTitle";
 import AllMenuCard from "./AllMenuCard";
 
 const AllMenu = () => {
+    UseTitle("Menu");
     const [allMenus, SetAllMenus] = useState([]);
     useEffect(() => {
         fetch("http://localhost:5000/menus")
