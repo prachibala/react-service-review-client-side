@@ -1,39 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import UseTitle from "../Hooks/UseTitle";
-const Register = () => {
-    UseTitle("Register");
+
+const Login = () => {
+    UseTitle("Login");
     return (
         <div>
             <div className="hero min-h-screen  w-9/12 mx-auto">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Register now!</h1>
+                        <h1 className="text-5xl font-bold">Login now!</h1>
                         <p className="py-6">
                             Nutrition is just one aspect of 'Good Food Good
-                            Lifeeee'......
+                            Life'.
                         </p>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
                         <form className="card-body">
                             <div className="form-control">
                                 <label className="label">
-                                    <span className="label-text">Name</span>
-                                </label>
-                                <input
-                                    type="text"
-                                    name="name"
-                                    placeholder="Name"
-                                    className="input input-bordered"
-                                />
-                            </div>
-                            <div className="form-control">
-                                <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
                                 <input
-                                    type="email"
-                                    name="email"
+                                    type="text"
                                     placeholder="email"
                                     className="input input-bordered"
                                 />
@@ -43,19 +32,18 @@ const Register = () => {
                                     <span className="label-text">Password</span>
                                 </label>
                                 <input
-                                    type="password"
-                                    name="pass"
+                                    type="text"
                                     placeholder="password"
                                     className="input input-bordered"
                                 />
                                 <label className="label ">
                                     <p className="label-text-alt   ">
-                                        Already, have an account? please{" "}
+                                        haven't any account? please{" "}
                                         <Link
-                                            to="/login"
+                                            to="/register"
                                             className="link link-error"
                                         >
-                                            Login
+                                            Register
                                         </Link>
                                     </p>
                                 </label>
@@ -65,7 +53,7 @@ const Register = () => {
                                     type="submit"
                                     className="btn btn-ghost bg-lime-400"
                                 >
-                                    Register
+                                    Login
                                 </button>
                             </div>
                         </form>
@@ -76,4 +64,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default Login;
