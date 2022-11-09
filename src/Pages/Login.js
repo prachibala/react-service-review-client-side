@@ -9,7 +9,7 @@ const Login = () => {
             <div className="hero min-h-screen  w-9/12 mx-auto">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className="text-center lg:text-left">
-                        <h1 className="text-5xl font-bold">Login now!</h1>
+                        <h1 className="text-5xl font-bold">Sign In!</h1>
                         <p className="py-6">
                             Nutrition is just one aspect of 'Good Food Good
                             Life'.

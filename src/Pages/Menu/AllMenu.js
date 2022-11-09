@@ -36,11 +36,11 @@ const AllMenu = () => {
                                     aria-label="Te nulla oportere reprimique his dolorum"
                                 ></Link>
                                 <Link
+                                    to="/"
                                     rel="noopener noreferrer"
-                                    href="#"
-                                    className="text-xs tracking-wider  hover:underline dark:text-lime-400"
+                                    className="text-xs tracking-wider  hover:underline dark:text-error"
                                 >
-                                    view details
+                                    Snack Box
                                 </Link>
                                 <h3 className="flex-1 py-2 text-lg font-semibold leading-snug">
                                     {allMenu.title}
@@ -53,9 +53,12 @@ const AllMenu = () => {
                                     <span>{allMenu.views}K views</span>
                                 </div>
                                 <div className="card-actions justify-end mt-4">
-                                    <button className="btn btn-ghost dark:bg-lime-400 sm:btn-sm md:btn-md lg:btn-md">
-                                        Order Now
-                                    </button>
+                                    <Link
+                                        to={`/menus/${allMenu._id}`}
+                                        className="btn btn-ghost dark:bg-lime-400 sm:btn-sm md:btn-md lg:btn-md"
+                                    >
+                                        View Details
+                                    </Link>
                                 </div>
                             </div>
                         </article>
