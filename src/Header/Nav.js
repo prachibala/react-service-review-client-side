@@ -69,7 +69,10 @@ const Nav = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <Link className="btn btn-ghost bg-lime-400 text-base-content ">
+                    <Link
+                        to="/login"
+                        className="btn btn-ghost bg-lime-400 text-base-content "
+                    >
                         Sign in
                     </Link>
                 </div>
