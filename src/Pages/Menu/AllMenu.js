@@ -7,7 +7,7 @@ const AllMenu = () => {
     UseTitle("Menu");
     const [allMenus, SetAllMenus] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/menus")
+        fetch(`${process.env.REACT_APP_server_url}/menus`)
             .then((res) => res.json())
             .then((data) => SetAllMenus(data))
             .catch((err) => console.log(err));

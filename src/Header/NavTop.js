@@ -1,5 +1,6 @@
 import React from "react";
-import { FaFacebookF, FaGoogle } from "react-icons/fa";
+import { FaFacebookF, FaInstagram, FaTwitter } from "react-icons/fa";
+
 const NavTop = () => {
     return (
         <div>
@@ -9,7 +10,10 @@ const NavTop = () => {
                         <FaFacebookF></FaFacebookF>
                     </button>
                     <button className="ml-3">
-                        <FaGoogle></FaGoogle>
+                        <FaInstagram></FaInstagram>
+                    </button>
+                    <button className="ml-3">
+                        <FaTwitter></FaTwitter>
                     </button>
                 </div>
             </div>

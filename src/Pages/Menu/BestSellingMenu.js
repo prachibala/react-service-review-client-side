@@ -5,7 +5,7 @@ import BestSellingCard from "./BestSellingCard";
 const BestSellingMenu = () => {
     const [topRated, setTopRated] = useState([]);
     useEffect(() => {
-        fetch("http://localhost:5000/top-rated-menus")
+        fetch(`${process.env.REACT_APP_server_url}/top-rated-menus`)
             .then((res) => res.json())
             .then((data) => setTopRated(data))
             .catch((err) => console.log(err));

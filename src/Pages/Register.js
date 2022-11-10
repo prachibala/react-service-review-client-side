@@ -1,8 +1,34 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/Context";
 import UseTitle from "../Hooks/UseTitle";
 const Register = () => {
+    const { createUser, updateUser } = useContext(AuthContext);
+    const [error, setError] = useState(null);
+
     UseTitle("Register");
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const email = form.email.value;
+        const photoURL = form.photoURL.value;
+        const password = form.pass.value;
+
+        createUser(email, password)
+            .then((result) => {
+                const user = result.user;
+                console.log("registered user", user);
+
+                return updateUser(name, photoURL);
+            })
+            .then((res) => {})
+            .catch((error) => {
+                console.error(error);
+                setError(error.message);
+            });
+    };
     return (
         <div>
             <div className="hero min-h-screen  w-9/12 mx-auto">
@@ -15,7 +41,8 @@ const Register = () => {
                         </p>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form className="card-body">
+                        {/* FORM  */}
+                        <form className="card-body" onSubmit={handleSubmit}>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Name</span>
@@ -25,6 +52,19 @@ const Register = () => {
                                     name="name"
                                     placeholder="Name"
                                     className="input input-bordered"
+                                    required
+                                />
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Photo</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    placeholder="photoURL"
+                                    name="photoURL"
+                                    className="input input-bordered"
+                                    required
                                 />
                             </div>
                             <div className="form-control">
@@ -36,8 +76,16 @@ const Register = () => {
                                     name="email"
                                     placeholder="email"
                                     className="input input-bordered"
+                                    required
                                 />
                             </div>
+                            <span
+                                className="label-text "
+                                style={{ color: "red" }}
+                            >
+                                {" "}
+                                <small>{error}</small>
+                            </span>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Password</span>
@@ -47,7 +95,10 @@ const Register = () => {
                                     name="pass"
                                     placeholder="password"
                                     className="input input-bordered"
+                                    required
                                 />
+                            </div>
+                            <div>
                                 <label className="label ">
                                     <p className="label-text-alt   ">
                                         Already, have an account? please{" "}

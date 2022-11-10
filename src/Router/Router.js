@@ -4,6 +4,7 @@ import Main from "../Layout/Main";
 import Blogs from "../Pages/Blogs";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
+import AddMenu from "../Pages/Menu/AddMenu";
 import AllMenu from "../Pages/Menu/AllMenu";
 import MenuDetails from "../Pages/Menu/MenuDetails";
 import Register from "../Pages/Register";
@@ -24,7 +25,9 @@ const router = createBrowserRouter([
                 path: "/menus/:id",
                 element: <MenuDetails></MenuDetails>,
                 loader: async ({ params }) => {
-                    return fetch(`http://localhost:5000/menus/${params.id}`);
+                    return fetch(
+                        `${process.env.REACT_APP_server_url}/menus/${params.id}`
+                    );
                 },
             },
             {
@@ -38,6 +41,10 @@ const router = createBrowserRouter([
             {
                 path: "/register",
                 element: <Register></Register>,
+            },
+            {
+                path: "/add-menu",
+                element: <AddMenu></AddMenu>,
             },
         ],
     },

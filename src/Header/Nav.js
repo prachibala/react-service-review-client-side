@@ -1,8 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { AuthContext } from "../Context/Context";
 import pic from "../Images/donut.png";
 
 const Nav = () => {
+    const navigate = useNavigate();
+    const { user, logOut } = useContext(AuthContext);
+    const LogOut = () => {
+        logOut()
+            .then(() => {
+                navigate("/login");
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+    };
     return (
         <div className="nav">
             <div className="navbar bg-base-100 ">
@@ -42,6 +55,9 @@ const Nav = () => {
                             <li>
                                 <Link to="/blogs">Blogs</Link>
                             </li>
+                            <li>
+                                <Link to="/add-menu">Add Menu</Link>
+                            </li>
                         </ul>
                     </div>
                     <Link className="btn btn-ghost normal-case text-xl">
@@ -66,15 +82,45 @@ const Nav = () => {
                         <li>
                             <Link to="/blogs">Blogs</Link>
                         </li>
+                        <li>
+                            <Link to="/add-menu">Add Menu</Link>
+                        </li>
+                        {user && (
+                            <div
+                                className="dropdown dropdown-end tooltip tooltip-bottom tooltip-base-300"
+                                data-tip={user.displayName}
+                            >
+                                <label
+                                    tabIndex={0}
+                                    className="btn btn-ghost btn-circle avatar"
+                                >
+                                    <div className="w-10 rounded-full">
+                                        <img src={user.photoURL} alt="" />
+                                    </div>
+                                </label>
+                            </div>
+                        )}
                     </ul>
                 </div>
+
+                {/* user ----->log in || log out */}
                 <div className="navbar-end">
-                    <Link
-                        to="/login"
-                        className="btn btn-ghost bg-lime-400 text-base-content "
-                    >
-                        Sign in
-                    </Link>
+                    {user ? (
+                        <Link
+                            to="/login"
+                            onClick={LogOut}
+                            className="btn btn-ghost bg-lime-400 text-base-content "
+                        >
+                            LogOut
+                        </Link>
+                    ) : (
+                        <Link
+                            to="/login"
+                            className="btn btn-ghost bg-lime-400 text-base-content "
+                        >
+                            Sign in
+                        </Link>
+                    )}
                 </div>
             </div>
         </div>
