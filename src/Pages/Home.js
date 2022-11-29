@@ -53,6 +53,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
+
             <section>
                 <section className="p-6 my-6 dark:bg-lime-100 dark:text-gray-100 w-9/12 mx-auto rounded-xl">
                     <div className="container grid grid-cols-1 gap-6 mx-auto sm:grid-cols-2 xl:grid-cols-4">

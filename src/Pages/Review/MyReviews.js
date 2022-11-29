@@ -89,7 +89,7 @@ const MyReveiws = () => {
                                 <th className="p-3"></th>
                             </tr>
                         </thead>
-
+                        {/* REVIEW SECTION */}
                         <tbody>
                             {reviews.map((review) => (
                                 <tr
